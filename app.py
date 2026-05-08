@@ -264,21 +264,19 @@ else:
 # ---------------------------------------------------
 st.markdown("---")
 
-csv = filtered_df.to_csv(index=False).encode("utf-8")
+csv = filtered_df.to_csv(index=False).encode('utf-8')
 
 st.download_button(
-    label="⬇ Download Filtered Data",
+    label="📥 Download Filtered Data",
     data=csv,
     file_name="filtered_tenders.csv",
     mime="text/csv"
 )
 
-# ---------------------------------------------------
-# FOOTER
-# ---------------------------------------------------
 st.markdown("---")
-st.caption("🚀 Haryana Tender AI Dashboard • CEO Level Intelligence System") f __name__ == "__main__":
+st.caption("🚀 Haryana Tender AI Dashboard • Live Updates")
+
+if __name__ == "__main__":
     if not os.path.exists('tenders.csv'):
-        st.info("🔄 पहली बार डेटा लोड हो रहा है, इसमें 1-2 मिनट लग सकते हैं...")
         os.system('python scraper.py')
-        st.rerun()
+
