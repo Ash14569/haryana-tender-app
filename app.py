@@ -277,4 +277,8 @@ st.download_button(
 # FOOTER
 # ---------------------------------------------------
 st.markdown("---")
-st.caption("🚀 Haryana Tender AI Dashboard • CEO Level Intelligence System") 
+st.caption("🚀 Haryana Tender AI Dashboard • CEO Level Intelligence System") f __name__ == "__main__":
+    if not os.path.exists('tenders.csv'):
+        st.info("🔄 पहली बार डेटा लोड हो रहा है, इसमें 1-2 मिनट लग सकते हैं...")
+        os.system('python scraper.py')
+        st.rerun()
