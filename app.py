@@ -81,16 +81,8 @@ categories = st.sidebar.multiselect(
 status_filter = st.sidebar.multiselect(
     "Tender Status",
     sorted(df["Status"].dropna().unique()),
-    default=sorted(df["Status"].dropna().unique())
-)
-
-budget_range = st.sidebar.slider(
-    "Budget Range (₹)",
-    min_value=0,
-    max_value=100000000,
-    value=(0, 100000000),
-    step=1000
-)
+    default=sorted(df["Status"].dropna().(filtered_df["Value"] >= budget_range[0]) &
+(filtered_df["Value"] <= budget_range[1])
 
 search_query = st.sidebar.text_input(
     "🔍 Search",
@@ -120,9 +112,9 @@ if status_filter:
         filtered_df["Status"].isin(status_filter)
     ]
 
-filtered_df = filtered_df[
-    (filtered_df["Value"] >= budget_range[0]) &
-    (filtered_df["Value"] <= budget_range[1])
+filtered_df = filtered_df[    (filtered_df["Value"] >= budget_range[0]) &
+
+
 ]
 
 if search_query:
